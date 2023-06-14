@@ -1,1 +1,41 @@
+ppublic class Employee {    private double basicSalary;    private int experienceInYears;    private String educationalLevel;    private boolean isFullTime; 
+// Constructor  
+public Employee(double basicSalary, int experienceInYears, String educationalLevel, boolean isFullTime) {      
+this.basicSalary = basicSalary;        this.experienceInYears = experienceInYears;   
+this.educationalLevel = educationalLevel;        this.isFullTime = isFullTime;    }    // Methods   
+public double calculateSalary() {       
+double salary = basicSalary + (basicSalary * 0.05 * experienceInYears);      
+if (educationalLevel.equals("Bachelor Degree")) {            salary += 500;        } 
+else if (educationalLevel.equals("Diploma")) {            salary += 250;        }      
+return salary;    }    public double calculateBonus() {        if (isFullTime) {      
+return basicSalary * 0.03;        } 
+else {          
+return basicSalary * 0.015;        }    }    // Getters and Setters   
 
+public double getBasicSalary() {        
+return basicSalary;    }    
+public void setBasicSalary(double basicSalary) {     
+this.basicSalary = basicSalary;    }   
+public int getExperienceInYears() {        
+return experienceInYears;    }    
+public void setExperienceInYears(int experienceInYears) {  
+this.experienceInYears = experienceInYears;    }  
+public String getEducationalLevel() {        return educationalLevel;    }  
+public void setEducationalLevel(String educationalLevel) {      
+this.educationalLevel = educationalLevel;    }   
+public boolean isFullTime() {     
+return isFullTime;    }    
+public void setFullTime(boolean fullTime) {     
+isFullTime = fullTime;    }}
+
+
+class Main {  
+public static void main(String[] args) {
+Employee employee = new Employee(5000, 2, "Bachelor Degree", true);   
+System.out.println("Salary: " + employee.calculateSalary()); // Output: Salary: 5750.0    
+System.out.println("Bonus: " + employee.calculateBonus()); // Output: Bonus: 150.0      
+employee.setEducationalLevel("Diploma");       
+employee.setExperienceInYears(5);       
+employee.setFullTime(false);     
+System.out.println("Salary: " + employee.calculateSalary()); // Output: Salary: 6437.5      
+System.out.println("Bonus: " + employee.calculateBonus()); // Output: Bonus: 48.5625    }}
